@@ -1,0 +1,11 @@
+<KinBody name="obj1">
+  <Body type="dynamic">
+    <Geom type="box">
+      <extents>0.135 0.20 0.06</extents>
+      <translation>0.0 0.0 0.0</translation>
+      <quat>1 0 0 0</quat>
+      <diffuseColor>0.0 1.0 0.0</diffuseColor>
+    </Geom>
+  </Body>
+
+</KinBody>

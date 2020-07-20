@@ -1,0 +1,711 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Robot name="Asp">
+  <KinBody>
+    <adjacent>se_leg s_crossbeam</adjacent>
+    <adjacent>ne_leg n_crossbeam</adjacent>
+    <adjacent>s_crossbeam e_cube</adjacent>
+    <adjacent>s_crossbeam w_cube</adjacent>
+
+    <Body name="world" type="dynamic">
+      <Translation>0.0  0.0  0</Translation>
+      <Geom type="box">
+        <Translation>0 0 0</Translation>
+        <Extents>0 0 0</Extents>
+        <diffuseColor>0.05 0.05 0.05</diffuseColor>
+      </Geom>
+    </Body>
+
+    <Body name="ne_leg" type="dynamic">
+      <offsetfrom>world</offsetfrom>
+      <Translation>-0.202 -0.0805 -0.0679</Translation> <!--The z translation is a bit unexplained-->
+      <Geom type="box">
+        <Translation>0.045 0.028 1.15</Translation>
+        <Extents>0.045 0.028 1.150</Extents>
+        <diffuseColor>0 0 0.8 1</diffuseColor>
+      </Geom>
+    </Body>
+
+    <Body name="nw_leg" type="dynamic">
+      <offsetfrom>ne_leg</offsetfrom>
+      <Translation>2.84 0 0</Translation>
+      <Geom type="box">
+        <Translation>0.045 0.028 1.15</Translation>
+        <Extents>0.045 0.028 1.150</Extents>
+        <diffuseColor>0 0 0.8 1</diffuseColor>
+      </Geom>
+    </Body>
+
+    <Body name="se_leg" type="dynamic">
+      <offsetfrom>ne_leg</offsetfrom>
+      <Translation>0 0.744 0</Translation>
+      <Geom type="box">
+        <Translation>0.045 0.028 1.150</Translation>
+        <Extents>0.045 0.028 1.150</Extents>
+        <diffuseColor>0 0 0.8 1</diffuseColor>
+      </Geom>
+    </Body>
+
+    <Body name="sw_leg" type="dynamic">
+      <offsetfrom>nw_leg</offsetfrom>
+      <Translation>0 0.744 0</Translation>
+      <Geom type="box">
+        <Translation>0.045 0.028 1.150</Translation>
+        <Extents>0.045 0.028 1.150</Extents>
+        <diffuseColor>0 0 0.8 1</diffuseColor>
+      </Geom>
+    </Body>
+
+
+    <Body name="s_crossbeam" type="dynamic">
+      <offsetfrom>se_leg</offsetfrom>
+      <Translation>0.090 0 2.030</Translation>
+      <Geom type="box">
+        <Translation>1.375 0.028 0.071</Translation>
+        <Extents>1.375 0.028 0.071</Extents>
+        <diffuseColor>1 0.27 0 1</diffuseColor>
+      </Geom>
+    </Body>
+
+    <Body name="n_crossbeam" type="dynamic">
+      <offsetfrom>ne_leg</offsetfrom>
+      <Translation>0.090 0 2.030</Translation>
+      <Geom type="box">
+        <Translation>1.375 0.028 0.071</Translation>
+        <Extents>1.375 0.028 0.071</Extents>
+        <diffuseColor>1 0.27 0 1</diffuseColor>
+      </Geom>
+    </Body>
+
+    <Body name="e_cube" type="dynamic">
+      <offsetfrom>s_crossbeam</offsetfrom>
+      <Translation>0 -0.110 -0.016</Translation>
+      <Geom type="box">
+        <Translation>0.056 0.055 0.055</Translation>
+        <Extents>0.056 0.055 0.055</Extents>
+        <diffuseColor>1 1 1 1</diffuseColor>
+      </Geom>
+    </Body>
+
+    <Body name="w_cube" type="dynamic">
+      <offsetfrom>e_cube</offsetfrom>
+      <Translation>2.628 0 0</Translation>
+      <Geom type="box">
+        <Translation>0.061 0.055 0.055</Translation>
+        <Extents>0.061 0.055 0.055</Extents>
+        <diffuseColor>1 1 1 1</diffuseColor>
+      </Geom>
+    </Body>
+
+    <Body name="s_rail" type="dynamic">
+      <offsetfrom>e_cube</offsetfrom>
+      <Translation>0.112 0 0.016</Translation>
+      <Geom type="box">
+        <Translation>1.258 0.055 0.047</Translation>
+        <Extents>1.258 0.055 0.047</Extents>
+        <diffuseColor>1 1 1 1</diffuseColor>
+      </Geom>
+    </Body>
+
+    <Body name="n_rail" type="dynamic">
+      <offsetfrom>n_crossbeam</offsetfrom>
+      <Translation>0 0.056 0</Translation>
+      <Geom type="box">
+        <Translation>1.375 0.0195 0.0375</Translation>
+        <Extents>1.375 0.0195 0.0375</Extents>
+        <diffuseColor>1 1 1 1</diffuseColor>
+      </Geom>
+    </Body>
+
+    <Body name="s_slider" type="dynamic">
+      <offsetfrom>s_rail</offsetfrom>
+      <Translation>0 -0.02 -0.027</Translation>
+      <Geom type="box">
+        <Translation>0.255 0.075 0.0135</Translation>
+        <Extents>0.255 0.075 0.0135</Extents>
+        <diffuseColor>1 1 1 1</diffuseColor>
+      </Geom>
+    </Body>
+
+    <Body name="e_rail" type="dynamic">
+      <offsetfrom>s_slider</offsetfrom>
+      <Translation>0 -0.5335 -0.067</Translation>
+      <Geom type="box">
+        <Translation>0.04 0.42 0.0335</Translation>
+        <Extents>0.04 0.42 0.0335</Extents>
+        <diffuseColor>1 1 1 1</diffuseColor>
+      </Geom>
+    </Body>
+
+
+    <Body name="w_rail" type="dynamic">
+      <offsetfrom>e_rail</offsetfrom>
+      <Translation>0.43 0 0</Translation>
+      <Geom type="box">
+        <Translation>0.04 0.42 0.0335</Translation>
+        <Extents>0.04 0.42 0.0335</Extents>
+        <diffuseColor>1 1 1 1</diffuseColor>
+      </Geom>
+    </Body>
+
+    <Body name="n_slider" type="dynamic">
+      <offsetfrom>s_slider</offsetfrom>
+      <Translation>0 -0.519 0</Translation>
+      <Geom type="box">
+        <Translation>0.255 0.033 0.05</Translation>
+        <Extents>0.255 0.033 0.05</Extents>
+        <diffuseColor>1 1 1 1</diffuseColor>
+      </Geom>
+    </Body>
+
+
+    <Body name="ne_cube" type="dynamic">
+      <offsetfrom>e_rail</offsetfrom>
+      <Translation>0 -0.080 -0.012</Translation>
+      <Geom type="box">
+        <Translation>0.04 0.04 0.0395</Translation>
+        <Extents>0.04 0.04 0.0395</Extents>
+        <diffuseColor>1 1 1 1</diffuseColor>
+      </Geom>
+    </Body>
+
+    <Body name="se_cube" type="dynamic">
+      <offsetfrom>ne_cube</offsetfrom>
+      <Translation>0 0.72 0</Translation>
+      <Geom type="box">
+        <Translation>0.04 0.04 0.0395</Translation>
+        <Extents>0.04 0.04 0.0395</Extents>
+        <diffuseColor>1 1 1 1</diffuseColor>
+      </Geom>
+    </Body>
+
+    <Body name="nw_cube" type="dynamic">
+      <offsetfrom>ne_cube</offsetfrom>
+      <Translation>0.43 0 0</Translation>
+      <Geom type="box">
+        <Translation>0.04 0.04 0.0395</Translation>
+        <Extents>0.04 0.04 0.0395</Extents>
+        <diffuseColor>1 1 1 1</diffuseColor>
+      </Geom>
+    </Body>
+
+
+    <Body name="sw_cube" type="dynamic">
+      <offsetfrom>nw_cube</offsetfrom>
+      <Translation>0 0.72 0</Translation>
+      <Geom type="box">
+        <Translation>0.04 0.04 0.0395</Translation>
+        <Extents>0.04 0.04 0.0395</Extents>
+        <diffuseColor>1 1 1 1</diffuseColor>
+      </Geom>
+    </Body>
+
+    <Body name="carriage" type="dynamic">
+      <offsetfrom>e_rail</offsetfrom>
+      <Translation>0 0 -0.013</Translation>
+      <axis>0 1 0</axis>
+      <Geom type="box">
+        <Translation>0.255 0.1 0.0065</Translation>
+        <Extents>0.255 0.1 0.0065</Extents>
+        <diffuseColor>1 1 1 1</diffuseColor>
+      </Geom>
+    </Body>
+
+    <Body name="e_carriage_beam" type="dynamic">
+      <offsetfrom>carriage</offsetfrom>
+      <Translation>0 0 -0.030</Translation>
+      <Geom type="box">
+        <Translation>0.04 0.325 0.015</Translation>
+        <Extents>0.04 0.325 0.015</Extents>
+        <diffuseColor>1 1 1 1</diffuseColor>
+      </Geom>
+    </Body>
+
+    <Body name="w_carriage_beam" type="dynamic">
+      <offsetfrom>e_carriage_beam</offsetfrom>
+      <Translation>0.43 0 0</Translation>
+      <Geom type="box">
+        <Translation>0.04 0.325 0.015</Translation>
+        <Extents>0.04 0.325 0.015</Extents>
+        <diffuseColor>1 1 1 1</diffuseColor>
+      </Geom>
+    </Body>
+
+    <Body name="under_carriage" type="dynamic">
+      <offsetfrom>e_carriage_beam</offsetfrom>
+      <Translation>0 0.450 -0.015</Translation>
+      <Geom type="box">
+        <Translation>0.255 0.1 0.0075</Translation>
+        <Extents>0.255 0.1 0.0075</Extents>
+        <diffuseColor>1 1 1 1</diffuseColor>
+      </Geom>
+    </Body>
+
+    <Body name="elbow" type="dynamic">
+      <offsetfrom>under_carriage</offsetfrom>
+      <Translation>0.255 0.1025 -0.053</Translation>
+      <rotationaxis>0 0 1 180</rotationaxis>
+      <Geom type="cylinder">
+        <rotationaxis>1 0 0 90</rotationaxis>
+        <Translation>0 0 0.0265</Translation>
+
+        <radius>0.0885</radius>
+        <height>0.053</height>
+        <diffuseColor>1 1 1 1</diffuseColor>
+      </Geom>
+    </Body>
+
+
+    <Body name="forearm" type="dynamic">
+      <offsetfrom>elbow</offsetfrom>
+      <Translation>-0.069 -0.053 -0.225</Translation>
+      <Geom type="box">
+        <Translation>0.0625 0.499 0.1125</Translation>
+        <Extents>0.0625 0.499 0.1125</Extents>
+        <diffuseColor>1 1 1 1</diffuseColor>
+      </Geom>
+    </Body>
+
+    <Body name="forearm_motor" type="dynamic">
+      <offsetfrom>forearm</offsetfrom>
+      <Translation>0.125 0.010 0.097</Translation>
+      <Geom type="box">
+        <Translation>0.05 0.0925 0.05</Translation>
+        <Extents>0.05 0.0925 0.05</Extents>
+        <diffuseColor>0 0 0 1</diffuseColor>
+      </Geom>
+    </Body>
+
+    <Body name="forearm_gearbox" type="dynamic">
+      <offsetfrom>forearm_motor</offsetfrom>
+      <Translation>0 0.819 -0.038</Translation>
+      <Geom type="box">
+        <Translation>0.043 0.0625 0.063</Translation>
+        <Extents>0.043 0.0625 0.063</Extents>
+        <diffuseColor>0 0 0 1</diffuseColor>
+      </Geom>
+    </Body>
+
+    <Body name="wrist" type="dynamic">
+      <offsetfrom>forearm</offsetfrom>
+      <Translation>0 0.843 -0.052</Translation>
+      <rotationaxis>1 0 0 180</rotationaxis>
+      <rotationaxis>0 0 1 90</rotationaxis>
+      <Geom type="box">
+        <Translation>0.11 0.0625 0.02475</Translation>
+        <Extents>0.11 0.0625 0.02475</Extents>
+        <diffuseColor>1 0 0 1</diffuseColor>
+      </Geom>
+    </Body>
+
+
+    <Body name="yaw_gear" type="dynamic">
+      <offsetfrom>wrist</offsetfrom>
+      <Translation>0.075 0.0625 0.082</Translation>
+      <rotationaxis>0 1 0 180</rotationaxis>
+      <rotationaxis>0 0 1 180</rotationaxis>
+      <Geom type="cylinder">
+        <rotationaxis>1 0 0 90</rotationaxis>
+        <Translation>0 0 0.01625</Translation>
+        <radius>0.0565</radius>
+        <height>0.0325</height>
+        <diffuseColor>0 0 1 1</diffuseColor>
+      </Geom>
+    </Body>
+
+    <Body name="end_effector" type="dynamic">
+      <offsetfrom>yaw_gear</offsetfrom>
+      <Translation>0 0 +0.0679</Translation>
+      <Geom type="box">
+        <Translation>0 0 0</Translation>
+        <Extents>0 0 0</Extents>
+        <diffuseColor>1 0 0 1</diffuseColor>
+      </Geom>
+    </Body>
+
+    <!--Body name="pressure_box" type="dynamic">
+      <offsetfrom>yaw_gear</offsetfrom>
+      <Translation>-0.157 -0.122 -0.212</Translation>
+      <Geom type="box">
+        <Translation>0.1575 0.122 0.106</Translation>
+        <Extents>0.1575 0.122 0.106</Extents>
+        <diffuseColor>0.803921568627 0.521568627451 0.247058823529 1</diffuseColor>
+      </Geom>
+    </Body-->
+
+    <Joint name="virtual_joint" enable="False">
+        <Body>world</Body>
+        <Body>ne_leg</Body>
+        <limits>0 0</limits>
+
+        <diffuseColor>0.5 0.5 0.5</diffuseColor>
+    </Joint>
+
+    <Joint name="se_leg_to_ne_leg" enable="False">
+        <Body>se_leg</Body>
+        <Body>ne_leg</Body>
+        <limits>0 0</limits>
+        <diffuseColor>0.5 0.5 0.5</diffuseColor>
+    </Joint>
+
+    <Joint name="ne_leg_to_nw_leg" enable="False">
+        <Body>ne_leg</Body>
+        <Body>nw_leg</Body>
+        <limits>0 0</limits>
+        <diffuseColor>0.5 0.5 0.5</diffuseColor>
+    </Joint>
+
+    <Joint name="nw_leg_to_sw_leg" enable="False">
+        <Body>nw_leg</Body>
+        <Body>sw_leg</Body>
+        <limits>0 0</limits>
+        <diffuseColor>0.5 0.5 0.5</diffuseColor>
+    </Joint>
+
+    <Joint name="se_leg_to_s_crossbeam" enable="False">
+        <Body>se_leg</Body>
+        <Body>s_crossbeam</Body>
+        <limits>0 0</limits>
+        <diffuseColor>0.5 0.5 0.5</diffuseColor>
+    </Joint>
+
+    <Joint name="ne_leg_to_n_crossbeam" enable="False">
+        <Body>ne_leg</Body>
+        <Body>n_crossbeam</Body>
+        <limits>0 0</limits>
+        <diffuseColor>0.5 0.5 0.5</diffuseColor>
+    </Joint>
+
+    <Joint name="s_crossbeam_to_e_cube" enable="False">
+        <Body>s_crossbeam</Body>
+        <Body>e_cube</Body>
+        <limits>0 0</limits>
+        <diffuseColor>0.5 0.5 0.5</diffuseColor>
+    </Joint>
+
+    <Joint name="e_cube_to_w_cube" enable="False">
+        <Body>e_cube</Body>
+        <Body>w_cube</Body>
+        <limits>0 0</limits>
+        <diffuseColor>0.5 0.5 0.5</diffuseColor>
+    </Joint>
+
+    <Joint name="e_cube_to_s_rail" enable="False">
+        <Body>e_cube</Body>
+        <Body>s_rail</Body>
+        <limits>0 0</limits>
+        <diffuseColor>0.5 0.5 0.5</diffuseColor>
+    </Joint>
+
+
+    <Joint name="n_crossbeam_to_n_rail" enable="False">
+        <Body>n_crossbeam</Body>
+        <Body>n_rail</Body>
+        <limits>0 0</limits>
+        <diffuseColor>0.5 0.5 0.5</diffuseColor>
+    </Joint>
+
+    <Joint name="X" type="slider" enable="True">
+        <Body>s_rail</Body>
+        <Body>s_slider</Body>
+        <offsetfrom>s_rail</offsetfrom>
+        <axis>1 0 0</axis>
+        <limits>0.005 2.001</limits>
+        <initial>0.006</initial>
+        <diffuseColor>0.5 0.5 0.5</diffuseColor>
+    </Joint>
+
+    <Joint name="s_slider_to_e_rail" enable="False">
+        <Body>s_slider</Body>
+        <Body>e_rail</Body>
+        <limits>0 0</limits>
+        <diffuseColor>0.5 0.5 0.5</diffuseColor>
+    </Joint>
+
+    <Joint name="e_rail_to_w_rail" enable="False">
+        <Body>e_rail</Body>
+        <Body>w_rail</Body>
+        <limits>0 0</limits>
+        <diffuseColor>0.5 0.5 0.5</diffuseColor>
+    </Joint>
+
+    <Joint name="s_slider_to_n_slider" enable="False">
+        <Body>s_slider</Body>
+        <Body>n_slider</Body>
+        <limits>0 0</limits>
+        <diffuseColor>0.5 0.5 0.5</diffuseColor>
+    </Joint>
+
+    <Joint name="e_rail_to_ne_cube" enable="False">
+        <Body>e_rail</Body>
+        <Body>ne_cube</Body>
+        <limits>0 0</limits>
+        <diffuseColor>0.5 0.5 0.5</diffuseColor>
+    </Joint>
+
+    <Joint name="ne_cube_to_se_cube" enable="False">
+        <Body>ne_cube</Body>
+        <Body>se_cube</Body>
+        <limits>0 0</limits>
+        <diffuseColor>0.5 0.5 0.5</diffuseColor>
+    </Joint>
+
+    <Joint name="ne_cube_to_nw_cube" enable="False">
+        <Body>ne_cube</Body>
+        <Body>nw_cube</Body>
+        <limits>0 0</limits>
+        <diffuseColor>0.5 0.5 0.5</diffuseColor>
+    </Joint>
+
+    <Joint name="nw_cube_to_sw_cube" enable="False">
+        <Body>nw_cube</Body>
+        <Body>sw_cube</Body>
+        <limits>0 0</limits>
+        <diffuseColor>0.5 0.5 0.5</diffuseColor>
+    </Joint>
+
+    <Joint name="Y" type="slider" enable="True">
+        <Body>e_rail</Body>
+        <Body>carriage</Body>
+        <offsetfrom>e_rail</offsetfrom>
+        <axis>0 1 0</axis>
+        <limits>0.005 0.63</limits>
+        <initial>0.006</initial>
+        <diffuseColor>0.5 0.5 0.5</diffuseColor>
+    </Joint>
+
+    <Joint name="carriage_to_e_carriage_beam" enable="False">
+        <Body>carriage</Body>
+        <Body>e_carriage_beam</Body>
+        <limits>0 0</limits>
+        <diffuseColor>0.5 0.5 0.5</diffuseColor>
+    </Joint>
+
+    <Joint name="e_carriage_beam_to_w_carriage_beam" enable="False">
+        <Body>e_carriage_beam</Body>
+        <Body>w_carriage_beam</Body>
+        <limits>0 0</limits>
+        <diffuseColor>0.5 0.5 0.5</diffuseColor>
+    </Joint>
+
+    <Joint name="e_carriage_beam_to_under_carriage" enable="False">
+        <Body>e_carriage_beam</Body>
+        <Body>under_carriage</Body>
+        <limits>0 0</limits>
+        <diffuseColor>0.5 0.5 0.5</diffuseColor>
+    </Joint>
+
+
+    <Joint name="B" type="hinge" circular="false" enable="true">
+        <Body>under_carriage</Body>
+        <Body>elbow</Body>
+        <offsetfrom>elbow</offsetfrom>
+        <axis>0 0 1</axis>
+        <limitsdeg>-180 180</limitsdeg>
+        <maxvel>1.5</maxvel>
+    </Joint>
+
+    <Joint name="elbow_to_forearm" enable="False">
+        <Body>elbow</Body>
+        <Body>forearm</Body>
+        <limits>0 0</limits>
+        <diffuseColor>0.5 0.5 0.5</diffuseColor>
+    </Joint>
+
+    <Joint name="forearm_to_forearm_motor" enable="False">
+        <Body>forearm</Body>
+        <Body>forearm_motor</Body>
+        <limits>0 0</limits>
+        <diffuseColor>0.5 0.5 0.5</diffuseColor>
+    </Joint>
+
+    <Joint name="forearm_motor_to_forearm_gearbox" enable="False">
+        <Body>forearm_motor</Body>
+        <Body>forearm_gearbox</Body>
+        <limits>0 0</limits>
+        <diffuseColor>0.5 0.5 0.5</diffuseColor>
+    </Joint>
+
+    <Joint name="Z" type="slider" enable="True">
+        <Body>forearm</Body>
+        <Body>wrist</Body>
+        <offsetfrom>forearm</offsetfrom>
+        <axis>0 0 -1</axis>
+        <limits>0.005 1.395</limits>
+        <initial>0.10</initial>
+        <diffuseColor>0.5 0.5 0.5</diffuseColor>
+    </Joint>
+
+    <Joint name="A" type="hinge" circular="false" enable="true">
+        <Body>wrist</Body>
+        <Body>yaw_gear</Body>
+        <offsetfrom>yaw_gear</offsetfrom>
+        <axis>0 0 1</axis>
+        <limitsdeg>-360 360</limitsdeg>
+        <maxvel>5.0</maxvel>
+    </Joint>
+
+    <Joint name="yaw_gear_to_ee" enable="False">
+        <Body>yaw_gear</Body>
+        <Body>end_effector</Body>
+        <limits>0 0</limits>
+        <diffuseColor>0.5 0.5 0.5</diffuseColor>
+    </Joint>
+
+    <!--Joint name="yaw_gear_to_pressure_box" enable="False">
+        <Body>yaw_gear</Body>
+        <Body>pressure_box</Body>
+        <limits>0 0</limits>
+        <diffuseColor>0.5 0.5 0.5</diffuseColor>
+    </Joint-->
+
+    <orgpmp2>
+      <spheres>
+        <!--<sphere link="sw_cube" pos="0.0         0.04         0.0395" radius="0.05621610089645136"/>
+        <sphere link="sw_cube" pos="0.05621610089645136         0.04         0.0395" radius="0.05621610089645136"/>-->
+
+        <!--<sphere link="forearm_motor" pos="0.05    0.0         0.05" radius="0.07071067811865477"/>
+        <sphere link="forearm_motor" pos="0.05    0.07071067811865477         0.05" radius="0.07071067811865477"/>
+        <sphere link="forearm_motor" pos="0.05    0.14142135623730953         0.05" radius="0.07071067811865477"/>-->
+
+        <!--<sphere link="forearm" pos="0.0625    0.0         0.1125" radius="0.1286953767623375"/>
+        <sphere link="forearm" pos="0.0625    0.1286953767623375         0.1125" radius="0.1286953767623375"/>
+        <sphere link="forearm" pos="0.0625    0.257390753524675         0.1125" radius="0.1286953767623375"/>
+        <sphere link="forearm" pos="0.0625    0.3860861302870125         0.1125" radius="0.1286953767623375"/>
+        <sphere link="forearm" pos="0.0625    0.51478150704935         0.1125" radius="0.1286953767623375"/>
+        <sphere link="forearm" pos="0.0625    0.6434768838116876         0.1125" radius="0.1286953767623375"/>
+        <sphere link="forearm" pos="0.0625    0.7721722605740251         0.1125" radius="0.1286953767623375"/>
+        <sphere link="forearm" pos="0.0625    0.9008676373363627         0.1125" radius="0.1286953767623375"/>-->
+
+        <!--<sphere link="w_rail" pos="0.04    0.0         0.0335" radius="0.05217518567288477"/>
+        <sphere link="w_rail" pos="0.04    0.05217518567288477         0.0335" radius="0.05217518567288477"/>
+        <sphere link="w_rail" pos="0.04    0.10435037134576954         0.0335" radius="0.05217518567288477"/>
+        <sphere link="w_rail" pos="0.04    0.1565255570186543         0.0335" radius="0.05217518567288477"/>
+        <sphere link="w_rail" pos="0.04    0.20870074269153907         0.0335" radius="0.05217518567288477"/>
+        <sphere link="w_rail" pos="0.04    0.26087592836442386         0.0335" radius="0.05217518567288477"/>
+        <sphere link="w_rail" pos="0.04    0.3130511140373086         0.0335" radius="0.05217518567288477"/>
+        <sphere link="w_rail" pos="0.04    0.3652262997101934         0.0335" radius="0.05217518567288477"/>
+        <sphere link="w_rail" pos="0.04    0.41740148538307814         0.0335" radius="0.05217518567288477"/>
+        <sphere link="w_rail" pos="0.04    0.4695766710559629         0.0335" radius="0.05217518567288477"/>
+        <sphere link="w_rail" pos="0.04    0.5217518567288477         0.0335" radius="0.05217518567288477"/>
+        <sphere link="w_rail" pos="0.04    0.5739270424017325         0.0335" radius="0.05217518567288477"/>
+        <sphere link="w_rail" pos="0.04    0.6261022280746174         0.0335" radius="0.05217518567288477"/>
+        <sphere link="w_rail" pos="0.04    0.6782774137475022         0.0335" radius="0.05217518567288477"/>
+        <sphere link="w_rail" pos="0.04    0.730452599420387         0.0335" radius="0.05217518567288477"/>
+        <sphere link="w_rail" pos="0.04    0.7826277850932718         0.0335" radius="0.05217518567288477"/>
+        <sphere link="w_rail" pos="0.04    0.8348029707661566         0.0335" radius="0.05217518567288477"/>-->
+
+        <!--<sphere link="under_carriage" pos="0.0    0.1         0.0075" radius="0.10028085560065791"/>
+        <sphere link="under_carriage" pos="0.10028085560065791    0.1         0.0075" radius="0.10028085560065791"/>
+        <sphere link="under_carriage" pos="0.20056171120131583    0.1         0.0075" radius="0.10028085560065791"/>
+        <sphere link="under_carriage" pos="0.30084256680197374    0.1         0.0075" radius="0.10028085560065791"/>
+        <sphere link="under_carriage" pos="0.40112342240263166    0.1         0.0075" radius="0.10028085560065791"/>
+        <sphere link="under_carriage" pos="0.5014042780032896    0.1         0.0075" radius="0.10028085560065791"/>-->
+
+        <sphere link="s_slider" pos="0.0    0.075         0.0135" radius="0.07620531477528322"/>
+        <sphere link="s_slider" pos="0.07620531477528322    0.075         0.0135" radius="0.07620531477528322"/>
+        <sphere link="s_slider" pos="0.15241062955056645    0.075         0.0135" radius="0.07620531477528322"/>
+        <sphere link="s_slider" pos="0.22861594432584967    0.075         0.0135" radius="0.07620531477528322"/>
+        <sphere link="s_slider" pos="0.3048212591011329    0.075         0.0135" radius="0.07620531477528322"/>
+        <sphere link="s_slider" pos="0.38102657387641614    0.075         0.0135" radius="0.07620531477528322"/>
+        <sphere link="s_slider" pos="0.4572318886516994    0.075         0.0135" radius="0.07620531477528322"/>
+
+        <!--<sphere link="forearm_gearbox" pos="0.043    0.0625         0.0" radius="0.07586336401715917"/>
+        <sphere link="forearm_gearbox" pos="0.043    0.0625         0.07586336401715917" radius="0.07586336401715917"/>-->
+
+        <!--<sphere link="w_carriage_beam" pos="0.04    0.0         0.015" radius="0.04272001872658766"/>
+        <sphere link="w_carriage_beam" pos="0.04    0.04272001872658766         0.015" radius="0.04272001872658766"/>
+        <sphere link="w_carriage_beam" pos="0.04    0.08544003745317531         0.015" radius="0.04272001872658766"/>
+        <sphere link="w_carriage_beam" pos="0.04    0.12816005617976298         0.015" radius="0.04272001872658766"/>
+        <sphere link="w_carriage_beam" pos="0.04    0.17088007490635063         0.015" radius="0.04272001872658766"/>
+        <sphere link="w_carriage_beam" pos="0.04    0.21360009363293828         0.015" radius="0.04272001872658766"/>
+        <sphere link="w_carriage_beam" pos="0.04    0.25632011235952595         0.015" radius="0.04272001872658766"/>
+        <sphere link="w_carriage_beam" pos="0.04    0.2990401310861136         0.015" radius="0.04272001872658766"/>
+        <sphere link="w_carriage_beam" pos="0.04    0.34176014981270125         0.015" radius="0.04272001872658766"/>
+        <sphere link="w_carriage_beam" pos="0.04    0.3844801685392889         0.015" radius="0.04272001872658766"/>
+        <sphere link="w_carriage_beam" pos="0.04    0.42720018726587655         0.015" radius="0.04272001872658766"/>
+        <sphere link="w_carriage_beam" pos="0.04    0.4699202059924642         0.015" radius="0.04272001872658766"/>
+        <sphere link="w_carriage_beam" pos="0.04    0.5126402247190519         0.015" radius="0.04272001872658766"/>
+        <sphere link="w_carriage_beam" pos="0.04    0.5553602434456396         0.015" radius="0.04272001872658766"/>
+        <sphere link="w_carriage_beam" pos="0.04    0.5980802621722273         0.015" radius="0.04272001872658766"/>
+        <sphere link="w_carriage_beam" pos="0.04    0.640800280898815         0.015" radius="0.04272001872658766"/>-->
+
+        <!--<sphere link="nw_cube" pos="0.0    0.04         0.0395" radius="0.05621610089645136"/>
+        <sphere link="nw_cube" pos="0.05621610089645136    0.04         0.0395" radius="0.05621610089645136"/>-->
+
+        <sphere link="carriage" pos="0.0    0.1         0.0065" radius="0.10021102733731455"/>
+        <sphere link="carriage" pos="0.10021102733731455    0.1         0.0065" radius="0.10021102733731455"/>
+        <sphere link="carriage" pos="0.2004220546746291    0.1         0.0065" radius="0.10021102733731455"/>
+        <sphere link="carriage" pos="0.3006330820119436    0.1         0.0065" radius="0.10021102733731455"/>
+        <sphere link="carriage" pos="0.4008441093492582    0.1         0.0065" radius="0.10021102733731455"/>
+        <sphere link="carriage" pos="0.5010551366865728    0.1         0.0065" radius="0.10021102733731455"/>
+
+        <!--<sphere link="se_cube" pos="0.0    0.04         0.0395" radius="0.05621610089645136"/>
+        <sphere link="se_cube" pos="0.05621610089645136    0.04         0.0395" radius="0.05621610089645136"/>-->
+
+        <sphere link="wrist" pos="0.0    0.0625         0.02475" radius="0.06722211317713837"/>
+        <sphere link="wrist" pos="0.06722211317713837    0.0625         0.02475" radius="0.06722211317713837"/>
+        <sphere link="wrist" pos="0.13444422635427675    0.0625         0.02475" radius="0.06722211317713837"/>
+        <sphere link="wrist" pos="0.2016663395314151    0.0625         0.02475" radius="0.06722211317713837"/>
+
+        <!--<sphere link="ne_cube" pos="0.0    0.04         0.0395" radius="0.05621610089645136"/>
+        <sphere link="ne_cube" pos="0.05621610089645136    0.04         0.0395" radius="0.05621610089645136"/>-->
+
+        <!--<sphere link="pressure_box" pos="0.0    0.122         0.106" radius="0.16161683080669537"/>-->
+        <!--<sphere link="pressure_box" pos="0.16161683080669537    0.122         0.106" radius="0.16161683080669537"/>-->
+
+        <!--<sphere link="n_slider" pos="0.0    0.033         0.05" radius="0.05990826320300064"/>
+        <sphere link="n_slider" pos="0.05990826320300064    0.033         0.05" radius="0.05990826320300064"/>
+        <sphere link="n_slider" pos="0.11981652640600128    0.033         0.05" radius="0.05990826320300064"/>
+        <sphere link="n_slider" pos="0.17972478960900193    0.033         0.05" radius="0.05990826320300064"/>
+        <sphere link="n_slider" pos="0.23963305281200256    0.033         0.05" radius="0.05990826320300064"/>
+        <sphere link="n_slider" pos="0.2995413160150032    0.033         0.05" radius="0.05990826320300064"/>
+        <sphere link="n_slider" pos="0.35944957921800386    0.033         0.05" radius="0.05990826320300064"/>
+        <sphere link="n_slider" pos="0.4193578424210045    0.033         0.05" radius="0.05990826320300064"/>
+        <sphere link="n_slider" pos="0.4792661056240051    0.033         0.05" radius="0.05990826320300064"/>-->
+
+        <!--<sphere link="e_carriage_beam" pos="0.04    0.0         0.015" radius="0.04272001872658766"/>
+        <sphere link="e_carriage_beam" pos="0.04    0.04272001872658766         0.015" radius="0.04272001872658766"/>
+        <sphere link="e_carriage_beam" pos="0.04    0.08544003745317531         0.015" radius="0.04272001872658766"/>
+        <sphere link="e_carriage_beam" pos="0.04    0.12816005617976298         0.015" radius="0.04272001872658766"/>
+        <sphere link="e_carriage_beam" pos="0.04    0.17088007490635063         0.015" radius="0.04272001872658766"/>
+        <sphere link="e_carriage_beam" pos="0.04    0.21360009363293828         0.015" radius="0.04272001872658766"/>
+        <sphere link="e_carriage_beam" pos="0.04    0.25632011235952595         0.015" radius="0.04272001872658766"/>
+        <sphere link="e_carriage_beam" pos="0.04    0.2990401310861136         0.015" radius="0.04272001872658766"/>
+        <sphere link="e_carriage_beam" pos="0.04    0.34176014981270125         0.015" radius="0.04272001872658766"/>
+        <sphere link="e_carriage_beam" pos="0.04    0.3844801685392889         0.015" radius="0.04272001872658766"/>
+        <sphere link="e_carriage_beam" pos="0.04    0.42720018726587655         0.015" radius="0.04272001872658766"/>
+        <sphere link="e_carriage_beam" pos="0.04    0.4699202059924642         0.015" radius="0.04272001872658766"/>
+        <sphere link="e_carriage_beam" pos="0.04    0.5126402247190519         0.015" radius="0.04272001872658766"/>
+        <sphere link="e_carriage_beam" pos="0.04    0.5553602434456396         0.015" radius="0.04272001872658766"/>
+        <sphere link="e_carriage_beam" pos="0.04    0.5980802621722273         0.015" radius="0.04272001872658766"/>
+        <sphere link="e_carriage_beam" pos="0.04    0.640800280898815         0.015" radius="0.04272001872658766"/>-->
+
+        <!--<sphere link="e_rail" pos="0.04    0.0         0.0335" radius="0.05217518567288477"/>
+        <sphere link="e_rail" pos="0.04    0.05217518567288477         0.0335" radius="0.05217518567288477"/>
+        <sphere link="e_rail" pos="0.04    0.10435037134576954         0.0335" radius="0.05217518567288477"/>
+        <sphere link="e_rail" pos="0.04    0.1565255570186543         0.0335" radius="0.05217518567288477"/>
+        <sphere link="e_rail" pos="0.04    0.20870074269153907         0.0335" radius="0.05217518567288477"/>
+        <sphere link="e_rail" pos="0.04    0.26087592836442386         0.0335" radius="0.05217518567288477"/>
+        <sphere link="e_rail" pos="0.04    0.3130511140373086         0.0335" radius="0.05217518567288477"/>
+        <sphere link="e_rail" pos="0.04    0.3652262997101934         0.0335" radius="0.05217518567288477"/>
+        <sphere link="e_rail" pos="0.04    0.41740148538307814         0.0335" radius="0.05217518567288477"/>
+        <sphere link="e_rail" pos="0.04    0.4695766710559629         0.0335" radius="0.05217518567288477"/>
+        <sphere link="e_rail" pos="0.04    0.5217518567288477         0.0335" radius="0.05217518567288477"/>
+        <sphere link="e_rail" pos="0.04    0.5739270424017325         0.0335" radius="0.05217518567288477"/>
+        <sphere link="e_rail" pos="0.04    0.6261022280746174         0.0335" radius="0.05217518567288477"/>
+        <sphere link="e_rail" pos="0.04    0.6782774137475022         0.0335" radius="0.05217518567288477"/>
+        <sphere link="e_rail" pos="0.04    0.730452599420387         0.0335" radius="0.05217518567288477"/>
+        <sphere link="e_rail" pos="0.04    0.7826277850932718         0.0335" radius="0.05217518567288477"/>
+        <sphere link="e_rail" pos="0.04    0.8348029707661566         0.0335" radius="0.05217518567288477"/>-->
+      </spheres>
+    </orgpmp2>
+  </KinBody>
+
+  <manipulator name="asp_ee">
+      <base>world</base>
+      <effector>end_effector</effector>
+  </manipulator>
+
+
+
+</Robot>
